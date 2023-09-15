@@ -13,13 +13,14 @@ const RestaurantCard = (props) => {
     avgRating,
     sla,
   } = props.resData.info;
-  console.log("restaurantcard")
+  // console.log("restaurantcard")
+  // console.log(cloudinaryImageId)
 
   return (
     <div className="res-card" style={styleCard}>
       <img
         className="res-logo"
-        src={CDN_URL + cloudinaryImageId}
+        src={CDN_URL+cloudinaryImageId}
         alt="biryani"
       />
       <h3>{name}</h3>
