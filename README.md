@@ -41,3 +41,7 @@
 # 2 types Routing in web apps
 - Client Side Routing
 - Server Side Routing
+
+
+# Day-9
+# Single Responsibility Principle
