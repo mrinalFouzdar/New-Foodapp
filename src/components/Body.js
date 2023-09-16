@@ -42,37 +42,34 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 //   },
 // ];
 const Body = () => {
-
-  const {restaurantList,filteredRestaurantList} = useResturantDetails()
+  const { restaurantList, filteredRestaurantList, handlefilterList } =
+    useResturantDetails();
   const [searchText, setSearchText] = useState("");
-  const onlineStatus = useOnlineStatus()
+  const onlineStatus = useOnlineStatus();
 
-  if(onlineStatus === false) return (<h1>Look's your online connection is lost. Kindly check your internet connection</h1>)
-
-
-
-  const handlefilterList = () => {
-    let filterResturant = listOfRestaurants.filter(
-      (restaurant) => restaurant.data.avgRating > 4
+  if (onlineStatus === false)
+    return (
+      <h1>
+        Look's your online connection is lost. Kindly check your internet
+        connection
+      </h1>
     );
-    setRestautrantList(filterResturant);
-  };
 
   if (filteredRestaurantList.length === 0) {
     return <Shimmer />;
   }
   return (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex">
+        <div className=" m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
           <button
-            className="search-button"
+            className="px-4 py-[0.3%] bg-green-50 m-4 rounded-lg"
             onClick={() => {
               const filtaredList = restaurantList.filter((res) => {
                 return res.info.name
@@ -86,12 +83,13 @@ const Body = () => {
             Search
           </button>
         </div>
-
-        <button className="filter-btn" onClick={handlefilterList}>
-          Top Rated Restaurants
-        </button>
+        <div className="m-4 p-4">
+          <button className="px-4 py-[0.3%] bg-slate-300 m-4 rounded-lg" onClick={handlefilterList}>
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap mx-12">
         {filteredRestaurantList &&
           filteredRestaurantList.map((restaurant) => (
             <Link

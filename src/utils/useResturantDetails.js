@@ -32,7 +32,14 @@ const useResturantDetails = () => {
     }
   };
 
-  return {restaurantList,filteredRestaurantList}
+  const handlefilterList = () => {
+    let filterResturant = restaurantList.filter(
+      (restaurant) => restaurant.info.avgRating > 4
+    );
+    SetFilteredRestaurantList(filterResturant);
+  };
+
+  return {restaurantList,filteredRestaurantList, handlefilterList}
 }
 
 export default useResturantDetails

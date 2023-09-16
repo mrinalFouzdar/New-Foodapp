@@ -10,7 +10,7 @@ const RestaurnatMenu = () => {
 
 
   //   console.log(resInfo?.cards[0])
-  if (resInfo === null || !resInfo) return <Shimmer />;
+  if (resInfo === null || !resInfo?.cards) return <Shimmer />;
 
   const { name,cuisines, costForTwoMessage} = resInfo?.cards?.[0]?.card?.card?.info;
   const {itemCards} = resInfo?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card?.card
