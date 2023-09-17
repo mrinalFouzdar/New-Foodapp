@@ -30,7 +30,9 @@ const useResturantDetails = () => {
     }
   };
   console.log("resturan detials", restaurantList);
+  
   const handlefilterList = () => {
+    if (!restaurantList) return restaurantList;
     let filterResturant = restaurantList.filter(
       (restaurant) => restaurant.info.avgRating > 4
     );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // import resData from "../utils/dummyData";
-import RestaurantCard ,{ withDiscountedLabel}from "./RestaurantCard";
+import { RestaurantCard,withDiscountedLabel}from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useResturantDetails from "../utils/useResturantDetails";
