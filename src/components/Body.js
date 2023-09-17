@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // import resData from "../utils/dummyData";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard ,{ withDiscountedLabel}from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useResturantDetails from "../utils/useResturantDetails";
@@ -47,6 +47,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
 
+  const RestaurantCardDiscounted = withDiscountedLabel(RestaurantCard)
   if (onlineStatus === false)
     return (
       <h1>
@@ -55,7 +56,7 @@ const Body = () => {
       </h1>
     );
 
-  if (filteredRestaurantList.length === 0) {
+  if (!filteredRestaurantList) {
     return <Shimmer />;
   }
   return (
@@ -77,15 +78,15 @@ const Body = () => {
                   .includes(searchText.toLowerCase());
               });
               console.log(filtaredList);
-              SetFilteredRestaurantList(filtaredList);
+              // SetFilteredRestaurantList(filtaredList);
             }}
           >
             Search
           </button>
         </div>
         <div className="m-4 p-4">
-          <button className="px-4 py-[0.3%] bg-slate-300 m-4 rounded-lg" onClick={handlefilterList}>
-            Top Rated Restaurants
+          <button className="px-4 py-[0.3%] bg-slate-300 m-4 rounded-lg" onClick={()=>handlefilterList()}>
+            Top Rated Restaurants 
           </button>
         </div>
       </div>
@@ -96,7 +97,11 @@ const Body = () => {
               to={`/restaurants/${restaurant.info.id}`}
               key={restaurant.info.id}
             >
-              <RestaurantCard resData={restaurant} />
+              {
+                restaurant.info.aggregatedDiscountInfoV3 ?<RestaurantCardDiscounted resData={restaurant}/>:<RestaurantCard resData={restaurant} />
+
+              }
+              
             </Link>
           ))}
       </div>
