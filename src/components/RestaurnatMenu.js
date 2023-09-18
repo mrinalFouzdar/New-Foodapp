@@ -8,6 +8,7 @@ const RestaurnatMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
   const [showIndex,setShowIndex] = useState(null)
+  const [prevIndex, setPrevIndex] = useState(null)
 
   //   console.log(resInfo?.cards[0])
   if (resInfo === null || !resInfo?.cards) return <Shimmer />;
@@ -37,8 +38,11 @@ const RestaurnatMenu = () => {
         <RestaurantCategory
           key={categorie?.card?.card?.title}
           data={categorie?.card?.card}
-          showItems ={index === showIndex ? true :false}
-          setShowIndex={()=>setShowIndex(index)}
+          showItems ={(index === showIndex && showIndex !== prevIndex) ? true :false}
+          setShowIndex={()=>{
+            setPrevIndex(showIndex)
+            setShowIndex(index)
+          }}
         />
       ))}
     </div>
