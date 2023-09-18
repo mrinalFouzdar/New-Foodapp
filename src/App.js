@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -6,10 +6,20 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurnatMenu from "./components/RestaurnatMenu";
+import UserContext from "./utils/useContext";
 
 const About = lazy(() => import("./components/About"));
 const Grocery = lazy(() => import("./components/Grocery"));
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "Mrinal Fouzdar",
+    };
+
+    setUserName(data.name);
+  }, []);
   // useEffect(() => {
   //   // Disable text selection on the entire component
   //   document.getElementById('app').addEventListener('keydown', function (e) {
@@ -32,10 +42,14 @@ const AppLayout = () => {
   //   }
   // }, []);
   return (
-    <div className="app" id="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      <div className="app" id="app">
+        <UserContext.Provider value={{ loggedInUser: "Elon mask" }}>
+          <Header />
+        </UserContext.Provider>
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

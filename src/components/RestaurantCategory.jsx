@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import ItemList from "./ItemList";
 
 const RestaurantCategory = ({ data ,showItems,setShowIndex}) => {
   // console.log(props)
-  const [close,setClose] = useState(false)
   const { title } = data;
   const handleShowItems =()=>{
     setShowIndex()
