@@ -53,3 +53,14 @@
 - Slice (cartSlice)
 - dispatch (action)
 - Selector
+
+# Types of testing (developer)
+- Unit Testing
+- Integration Testing
+- End to End Testing - e2e testing
+
+# Setting up Testing in our app
+- Install React Testing Library
+- Installed Jest
+- Installed Babel dependencies
+- Configure Babel

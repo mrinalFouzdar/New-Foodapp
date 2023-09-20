@@ -56,8 +56,10 @@ const Body = () => {
         connection
       </h1>
     );
+    console.log(filteredRestaurantList)
 
-  if (!filteredRestaurantList) {
+  if (filteredRestaurantList.length===0) {
+    console.log('shimmer')
     return <Shimmer />;
   }
   return (
