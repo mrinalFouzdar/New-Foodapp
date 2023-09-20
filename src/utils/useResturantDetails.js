@@ -29,7 +29,7 @@ const useResturantDetails = () => {
       console.log(error);
     }
   };
-  console.log("resturan detials", restaurantList);
+  // console.log("resturan detials", restaurantList);
   
   const handlefilterList = () => {
     if (!restaurantList) return restaurantList;

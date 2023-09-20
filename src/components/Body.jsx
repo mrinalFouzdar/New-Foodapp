@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 // import resData from "../utils/dummyData";
 import { RestaurantCard,withDiscountedLabel}from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useResturantDetails from "../utils/useResturantDetails";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/useContext";
 
 // const listOfRestaurants = [
 //   {
@@ -46,7 +47,7 @@ const Body = () => {
     useResturantDetails();
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
-
+  const {loggedInUser, setUserName}= useContext(UserContext)
   const RestaurantCardDiscounted = withDiscountedLabel(RestaurantCard)
   if (onlineStatus === false)
     return (
@@ -89,8 +90,13 @@ const Body = () => {
             Top Rated Restaurants 
           </button>
         </div>
+
+        <div className="m-4 p-4 items-center">
+          <label className="mr-4">User Name</label>
+          <input className="border border-black p-2" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}/>
+        </div>
       </div>
-      <div className="flex flex-wrap mx-12">
+      <div className="flex flex-wrap justify-center">
         {filteredRestaurantList &&
           filteredRestaurantList.map((restaurant) => (
             <Link
