@@ -7,6 +7,7 @@ const styleCard = {
 export const RestaurantCard = (props) => {
   const { name, cloudinaryImageId, cuisines, costForTwo, avgRating, sla } =
     props.resData.info;
+    // console.log(props.resData)
   // console.log("restaurantcard")
   // console.log(cloudinaryImageId)
 
@@ -38,6 +39,7 @@ export const RestaurantCard = (props) => {
 
 export const withDiscountedLabel = (RestaurantCard) => {
   return (props) => {
+    console.log(props)
     return (
       <div className="relative">
         <label className="absolute z-10 left-9 bottom-48 text-slate-50 text-xl font-bold">
