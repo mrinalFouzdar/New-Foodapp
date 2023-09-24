@@ -12,7 +12,7 @@ export const RestaurantCard = (props) => {
   // console.log(cloudinaryImageId)
 
   return (
-    <div className="m-4 p-4  w-[250px] h-[400px] max-h-fit bg-slate-100 rounded-lg transition-transform transform hover:scale-105">
+    <div data-testid='resCard' className="m-4 p-4  w-[250px] h-[400px] max-h-fit bg-slate-100 rounded-lg transition-transform transform hover:scale-105">
       <div className="relative">
         <img
           className="rounded-lg h-[200px] w-full object-cover"
@@ -39,7 +39,7 @@ export const RestaurantCard = (props) => {
 
 export const withDiscountedLabel = (RestaurantCard) => {
   return (props) => {
-    console.log(props)
+    // console.log(props)
     return (
       <div className="relative">
         <label className="absolute z-10 left-9 bottom-48 text-slate-50 text-xl font-bold">

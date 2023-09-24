@@ -14,7 +14,7 @@ const cartSlice = createSlice({
       state.items.pop();
     },
     clearCart: (state) => {
-      console.log(current(state))
+      // console.log(current(state))
       state.items.length = 0;
 
       // or we can do another way

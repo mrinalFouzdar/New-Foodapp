@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import {CDN_URL}  from '../utils/cons'
 import { addItem } from '../utils/cartSlice';
 const ItemList = ({ items }) => {
-  console.log({ items });
+  // console.log({ items });
   const dispatch = useDispatch()
   // const {id, name} =items?.card.info
   const handleAddItem=(item)=>{
@@ -13,6 +13,7 @@ const ItemList = ({ items }) => {
     <div>
       {items.map((item) => (
         <div
+          data-testid='foodItems'
           key={item?.card.info.id}
           className="p-2 m-2 pb-9 border-gray-300 border-b-2 flex  justify-between  space-x-4"
         >
