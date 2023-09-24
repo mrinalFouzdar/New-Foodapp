@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 const useResturantDetails = () => {
+  const [restaurantList, setRestautrantList] = useState([]);
   const [filteredRestaurantList, SetFilteredRestaurantList] = useState([]);
 
-  const [restaurantList, setRestautrantList] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -38,6 +38,7 @@ const useResturantDetails = () => {
     );
     SetFilteredRestaurantList(filterResturant);
   };
+  
 
   return { restaurantList, filteredRestaurantList, handlefilterList };
 };

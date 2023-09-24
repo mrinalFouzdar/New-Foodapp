@@ -19,7 +19,7 @@ const useRestaurantMenu = (resId) => {
           console.log(error);
         }
       };
-      console.log(resInfo)
+      // console.log(resInfo)
 
   return resInfo;
 }

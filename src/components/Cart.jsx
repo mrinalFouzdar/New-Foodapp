@@ -10,6 +10,7 @@ const Cart = () => {
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+  // console.log(cartItems)
 
   return (
     <div className="text-center m-4 p-4">

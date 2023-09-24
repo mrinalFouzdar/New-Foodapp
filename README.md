@@ -53,3 +53,24 @@
 - Slice (cartSlice)
 - dispatch (action)
 - Selector
+
+# Types of testing (developer)
+- Unit Testing
+- Integration Testing
+- End to End Testing - e2e testing
+
+# Setting up Testing in our app
+- Install React Testing Library
+- Installed Jest
+- Installed Babel dependencies
+- Configure Babel
+- Configure Parcel Config file to disable default babel transpilation
+- Jest configuration
+- Jest - npx jest --init
+- Install jest dom libary
+- Install @babel/preset-react - to make JSX work in test cases
+- Include @babel/preset-react inside my babel
+- Install @testing-library/jest-dom
+
+- Jest 
+- Assertion (eg: expect(result).toBe(value(eg:2)))
